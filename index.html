@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loading...</title>
+
+<style>
+  html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>
+</head>
+
+<body>
+
+<iframe
+  id="siteFrame"
+  src="https://xrolx.lovable.app"
+></iframe>
+
+<script>
+  const iframe = document.getElementById("siteFrame");
+
+  iframe.onload = () => {
+    try {
+      // Try reading iframe title
+      const iframeTitle =
+        iframe.contentDocument.title ||
+        iframe.contentWindow.document.title;
+
+      document.title = iframeTitle;
+    } catch (e) {
+      // Fallback if cross-origin blocks access
+      document.title = "Cubilum";
+    }
+  };
+</script>
+
+</body>
+</html>
